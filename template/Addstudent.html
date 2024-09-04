@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add Student</title>
+    <link rel="stylesheet" href="{% static 'css/studentimage.css' %}" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .form-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 350px;
+        text-align: left;
+      }
+      h1,
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+      label {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        color: #555;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 6px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      button {
+        width: 100%;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <form action="addData" method="post" autocomplete="off" style="overflow-y: hidden;">
+        {% csrf_token %}
+        <h1>Insert New Student</h1>
+        <br />  
+        <h2>Student Form</h2>
+        <br />
+
+        <label>Name</label>
+        <input type="text" required class="form-control" name="name" /><br />
+
+        <label>Age</label>
+        <input type="text" required class="form-control" name="age" /><br />
+
+        <label>Email</label>
+        <input type="text" required class="form-control" name="email" /><br />
+
+        <label>Phone Number</label>
+        <input type="text" required class="form-control" name="phone" /><br />
+
+        <label>Date of Join </label>
+        <input type="date" required class="form-control" name="doj" /><br />
+        <form action="submi" method="post">
+          {% csrf_token %}
+        <button type="submit">Add Student</button><br /><br />
+        </form>
+        <button type="reset">clear</button>
+      </form>
+    </div>
+  </body>
+</html>

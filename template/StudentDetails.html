@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Student</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/team.css' %}" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: left;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 6px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 30%;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="form-container">
+        <h1>Student Details</h1><br>
+        <form>
+            {% for data in b%}
+
+            <label for="name">Name:</label>
+
+            <input type="text"  class="form-control"  value="{{data.Name}}" name="name" /><br />
+
+            <label for="age">Age:</label>
+            <input type="text"  class="form-control"  value="{{data.Age}}" name="name" /><br />
+
+            <label for="email">Email:</label>
+            <input type="text"  class="form-control"  value="{{data.Email}}" name="name" /><br />
+
+            <label for="phone">Phone Number:</label>
+            <input type="text"  class="form-control"  value="{{data.PhoneNumber}}" name="name" /><br />
+
+            <label for="doj">Date of Join (format: '01-JAN-12'):</label>
+        <input type="text"  class="form-control"  value="{{data.Dateofjoin}}" name="name" /><br />
+    </form>
+            <form action="home" method="post">
+                {% csrf_token %}
+            <button type="submit">Home</button>
+        </form>
+    </div>
+    {% endfor %}
+</body>
+</html>

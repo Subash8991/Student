@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/success1.css' %}" />
+    <title>Styled H1</title>
+    <style>
+      h1 {
+        font-family: "Arial", sans-serif;
+        font-size: 36px;
+        color: #4caf50;
+        text-align: center;
+        background-color: #f2f2f2;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Successfully submitted</h1>
+    <form action="home1" method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-secondary">Home</button>
+    </form>
+  </body>
+</html>

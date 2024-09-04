@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Name Add</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/kids.css' %}" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+         button {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 6px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+
+            <div class="form-group">
+                <label for="nam">Name:</label>
+                <!-- <input type="text"  required class="form-control" id="name"> -->
+            </div>
+             <!-- <form action="fetchname" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </form> -->
+            <form class="form-inline my-2 my-lg-0"  action="fetchname"method="post">
+                {% csrf_token %}
+                <!-- <input class="form-control mr-sm-2"type="search" placeholder="Search" aria-label="Search" name="search"> -->
+                   <input type="text" name="name" placeholder="Name">
+                <button class="btn btn-outline-success my-2my-sm-0"type="submit">Search</button> 
+            </form>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

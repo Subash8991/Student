@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Details</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/c.css' %}" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-4">
+      <div class="col-md-10 offset-md-2">
+        <h3 class="page-header text-primary text-center">View Details</h3>
+        <table class="table table-bordered table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th>S.No</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Date of Join</th>
+              
+              <th>Update</th>
+              <th>Delete</th>
+              <th>view</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for data in b %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ data.Name }}</td>
+              <td>{{ data.Age }}</td>
+              <td>{{ data.Email }}</td>
+              <td>{{ data.PhoneNumber }}</td>
+              <td>{{ data.Dateofjoin }}</td>
+              <td><a button class="btn btn-success btn-sm" href="{% url 'updateData' u_id=data.id %}">Update</a></button></td>
+              <td><a button class="btn btn-danger btn-sm" href="deleteData/{{data.id}}">Delete</a></button></td>
+              <td><a button class="btn btn-primary btn-sm" href="{% url 'view' u_id=data.id %}">View</a></button></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div
+    </div>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <h5>Go to main page</h5> 
+    <form action="home1" method="post">
+      {% csrf_token %}
+      
+      <button type="submit" class="btn btn-secondary">Home</button>
+    </form>
+    <h5>Do you want to Insert a new record</h5><a href="add">Inser here</a>
+
+  </body>
+</html>

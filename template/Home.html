@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="{% static 'css/image.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+
+      <h2><b>Student Information System</b></h2>
+      <form action="add" method="post">
+        {% csrf_token %}
+      <button type="submit">Add Student</button><br />
+      </form>
+
+       <form action="update" method="post">
+           {% csrf_token %}
+      <button type="submit">Update Details</button><br />
+       </form>
+
+      <form action="fetch" method="post">
+          {% csrf_token %}
+      <button type="submit">Fetch Student</button><br />
+      </form>
+
+      <form action="details" method="post">
+          {% csrf_token %}
+      <button type="submit">Fetch All Student</button>
+      </form>
+
+    </div>
+  </body>
+</html>
